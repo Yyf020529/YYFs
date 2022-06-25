@@ -4,7 +4,7 @@
 #include<QSqlError>
 #include<QSqlQuery>
 #include<QMessageBox>
-//#pragma execution_character_set("utf-8")
+
 zhuce::zhuce(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::zhuce)
@@ -62,13 +62,21 @@ void zhuce::on_back_clicked()
                 continue;
         }
 
-        if(password_1 == password_2)
+        if(password_1 == password_2 && !(password_1.isEmpty()) && !(password_2.isEmpty()))
         {
+
             query.prepare("insert into user (username,password)"  "VALUES (:name,:password_1)");
             query.bindValue(":name",name);
             query.bindValue(":password_1",password_1);
             query.exec();
             QMessageBox::information(NULL,"信息 ","注册成功 ");
+        }
+        else if(name.isEmpty() || password_1.isEmpty() || password_2.isEmpty())
+        {
+            QMessageBox::warning(NULL ,"错误 ","内容不能为空 ");
+            ui->lineEdit->clear();
+            ui->lineEdit_2->clear();
+            ui->lineEdit_3->clear();
         }
         else
         {
