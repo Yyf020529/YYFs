@@ -4,7 +4,7 @@
 #include<QSqlError>
 #include<QSqlQuery>
 #include<QMessageBox>
-#pragma execution_character_set("utf-8")
+//#pragma execution_character_set("utf-8")
 zhuce::zhuce(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::zhuce)
@@ -24,6 +24,7 @@ zhuce::zhuce(QWidget *parent) :
     QString name=ui->lineEdit->text();
     QString password_1=ui->lineEdit_2->text();
     QString password_2=ui->lineEdit_3->text();
+
 }
 
 zhuce::~zhuce()
@@ -44,19 +45,37 @@ void zhuce::on_back_clicked()
     QString name=ui->lineEdit->text();
     QString password_1=ui->lineEdit_2->text();
     QString password_2=ui->lineEdit_3->text();
+    QString sql="select username from user";
 
-    if(password_1 == password_2)
-    {
-        query.prepare("insert into user (username,password)"  "VALUES (:name,:password_1)");
-        query.bindValue(":name",name);
-        query.bindValue(":password_1",password_1);
-        query.exec();
-    }
-    else
-    {
-        QMessageBox::warning(NULL,"错误 ","密码不一致 ");
-        ui->lineEdit->clear();
-        ui->lineEdit_2->clear();
-        ui->lineEdit_3->clear();
-    }
+    query.exec(sql);
+        while(query.next())
+        {
+            if(query.value("username").toString()==name)
+            {
+                 QMessageBox::warning(NULL,"错误 ","用户名已被占用 ");
+                 ui->lineEdit->clear();
+                 ui->lineEdit_2->clear();
+                 ui->lineEdit_3->clear();
+                 break;
+            }
+            else
+                continue;
+        }
+
+        if(password_1 == password_2)
+        {
+            query.prepare("insert into user (username,password)"  "VALUES (:name,:password_1)");
+            query.bindValue(":name",name);
+            query.bindValue(":password_1",password_1);
+            query.exec();
+            QMessageBox::information(NULL,"信息 ","注册成功 ");
+        }
+        else
+        {
+            QMessageBox::warning(NULL,"错误 ","密码不一致 ");
+            //ui->lineEdit->clear();
+            ui->lineEdit_2->clear();
+            ui->lineEdit_3->clear();
+        }
+
 }
