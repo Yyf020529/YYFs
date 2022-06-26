@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>779</width>
+    <height>549</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -65,7 +65,7 @@
     <string>密码</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="mima">
    <property name="geometry">
     <rect>
      <x>240</x>
