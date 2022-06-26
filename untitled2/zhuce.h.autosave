@@ -3,6 +3,7 @@
 
 #include <QWidget>
 
+
 namespace Ui {
 class zhuce;
 }
@@ -14,7 +15,7 @@ class zhuce : public QWidget
 public:
     explicit zhuce(QWidget *parent = nullptr);
     ~zhuce();
-
+    
 private slots:
     void on_pushButton_clicked();
 

@@ -32,8 +32,6 @@ void zhuce::on_pushButton_clicked()
 void zhuce::on_back_clicked()
 {
     QSqlDatabase db=QSqlDatabase::addDatabase("QMYSQL","zhuce");    //创建数据库实例，添加mysql驱动
-    QStringList list=QSqlDatabase::drivers();          //查询qt的数据库驱动
-    qDebug()<<list;
     db.setHostName("localhost");
     db.setUserName("root");
     db.setDatabaseName("account");                //设定要连接数据库的名字

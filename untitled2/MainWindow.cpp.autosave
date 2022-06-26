@@ -28,11 +28,6 @@ MainWindow::MainWindow(QWidget *parent) :
         qDebug()<<"主界面连接数据库成功";
     }
 
-    QSqlQuery query("select username from user",db);
-    while(query.next())
-    {
-
-    }
 }
 
 MainWindow::~MainWindow()
