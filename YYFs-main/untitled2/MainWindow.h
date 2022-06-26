@@ -1,4 +1,4 @@
-#ifndef MAINWINDOW_H
+﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include<QMainWindow>
 
@@ -19,8 +19,16 @@ private slots:
 
 
 
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_4_clicked();
+
+    void on_pushButton_5_clicked();
+
 signals:
-    void showMain();            //自定义信号  是一个信号不需要定义
+    void   showMain();          //自定义信号  是一个信号不需要定义
 private:
     Ui::MainWindow *ui;
 };
