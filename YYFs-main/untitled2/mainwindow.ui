@@ -69,7 +69,7 @@
       </item>
       <item>
        <property name="text">
-        <string>姓名</string>
+        <string>name</string>
        </property>
       </item>
      </widget>
@@ -132,37 +132,37 @@
       </item>
       <item>
        <property name="text">
-        <string>出生日期</string>
+        <string>birth</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>入职日期</string>
+        <string>addTime</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>所属部门</string>
+        <string>department</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>职位</string>
+        <string>job</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>职称</string>
+        <string>job_name</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>政治面貌</string>
+        <string>face</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>婚姻情况</string>
+        <string>marriage</string>
        </property>
       </item>
      </widget>
