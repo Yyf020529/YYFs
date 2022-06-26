@@ -76,7 +76,7 @@ void MainWindow::on_pushButton_5_clicked()  //查询员工信息
     db.open();
 
     QSqlQueryModel *model=new QSqlQueryModel;
-    QString sql=QString("select * from employee_information where %1 = %2").arg("id").arg(ui->textEdit->toPlainText());
+    QString sql=QString("select * from employee_information where %1 = %2").arg(ui->comboBox->currentText()).arg(ui->textEdit->toPlainText());
     model->setQuery(sql,db);
     model->setHeaderData(0,Qt::Horizontal,tr("员工编号"));
     model->setHeaderData(1,Qt::Horizontal,tr("姓名"));
@@ -90,8 +90,38 @@ void MainWindow::on_pushButton_5_clicked()  //查询员工信息
     model->setHeaderData(9,Qt::Horizontal,tr("婚姻情况"));
 
     ui->tableView->setModel(model);
-    ui->tableView->show();
+
 
     db.close();
 
+}
+
+void MainWindow::on_pushButton_6_clicked()
+{
+    QSqlDatabase db=QSqlDatabase::addDatabase("QMYSQL","mainwindow_2");
+    db.setHostName("localhost");
+    db.setUserName("root");
+    db.setDatabaseName("account");                //设定要连接数据库的名字
+    db.setPassword("root");
+    db.setPort(3306);
+    db.open();
+
+    QString sql_2=QString("select * from employee_information where %1 = %2").arg("id").arg(ui->textEdit->toPlainText());
+    QString sql= QString("update employee_information set %1 = %2 where %3 =%4").arg(ui->comboBox_2->currentText()).arg(ui->textEdit_2->toPlainText())
+            .arg(ui->comboBox->currentText()).arg(ui->textEdit->toPlainText());
+    QSqlQuery query(db);
+
+   if(query.exec(sql_2))
+   {
+       qDebug()<<"chenggong";
+   }
+    QSqlQueryModel *model_2=new QSqlQueryModel;
+
+
+
+
+    ui->tableView->setModel(model_2);
+
+
+    db.close();
 }

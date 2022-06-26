@@ -27,6 +27,8 @@ private slots:
 
     void on_pushButton_5_clicked();
 
+    void on_pushButton_6_clicked();
+
 signals:
     void   showMain();          //自定义信号  是一个信号不需要定义
 private:
