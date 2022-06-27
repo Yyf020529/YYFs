@@ -44,7 +44,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>100</y>
+      <y>110</y>
       <width>771</width>
       <height>421</height>
      </rect>
@@ -187,6 +187,89 @@
       </property>
       <property name="text">
        <string>修改</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>150</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>id</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>name</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>sex</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>birth</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>addTime</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>department</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>job</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>job_name</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>face</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>marriage</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QTextEdit" name="textEdit_3">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>150</y>
+        <width>141</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_7">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>150</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>删除</string>
       </property>
      </widget>
     </widget>

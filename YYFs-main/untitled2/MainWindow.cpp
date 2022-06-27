@@ -133,3 +133,36 @@ void MainWindow::on_pushButton_6_clicked()
 
     db.close();
 }
+
+void MainWindow::on_pushButton_7_clicked()
+{
+    QSqlDatabase db=QSqlDatabase::addDatabase("QMYSQL","mainwindow_3");
+    db.setHostName("localhost");
+    db.setUserName("root");
+    db.setDatabaseName("account");                //设定要连接数据库的名字
+    db.setPassword("root");
+    db.setPort(3306);
+    db.open();
+
+    QString sql_2=QString("select * from employee_information where %1 = %2").arg(ui->comboBox->currentText()).arg(ui->textEdit->toPlainText().toInt());
+    QString sql=QString("delete from employee_information where %1=\"%2\"").arg(ui->comboBox_3->currentText()).arg(ui->textEdit_3->toPlainText());
+
+    QSqlQuery query(db);
+    query.exec(sql);
+
+    QSqlQueryModel *model=new QSqlQueryModel;
+    model->setHeaderData(0,Qt::Horizontal,tr("员工编号"));
+    model->setHeaderData(1,Qt::Horizontal,tr("姓名"));
+    model->setHeaderData(2,Qt::Horizontal,tr("性别"));
+    model->setHeaderData(3,Qt::Horizontal,tr("出生日期"));
+    model->setHeaderData(4,Qt::Horizontal,tr("入职时间"));
+    model->setHeaderData(5,Qt::Horizontal,tr("所属部门"));
+    model->setHeaderData(6,Qt::Horizontal,tr("职位"));
+    model->setHeaderData(7,Qt::Horizontal,tr("职称"));
+    model->setHeaderData(8,Qt::Horizontal,tr("政治面貌"));
+    model->setHeaderData(9,Qt::Horizontal,tr("婚姻情况"));
+
+    ui->tableView->setModel(model);
+
+    db.close();
+}
