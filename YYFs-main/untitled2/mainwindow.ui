@@ -44,7 +44,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>110</y>
+      <y>100</y>
       <width>771</width>
       <height>421</height>
      </rect>
@@ -57,7 +57,7 @@
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>30</y>
+        <y>10</y>
         <width>81</width>
         <height>31</height>
        </rect>
@@ -67,17 +67,12 @@
         <string>id</string>
        </property>
       </item>
-      <item>
-       <property name="text">
-        <string>name</string>
-       </property>
-      </item>
      </widget>
      <widget class="QPushButton" name="pushButton_5">
       <property name="geometry">
        <rect>
         <x>260</x>
-        <y>30</y>
+        <y>10</y>
         <width>81</width>
         <height>31</height>
        </rect>
@@ -92,7 +87,7 @@
         <x>10</x>
         <y>190</y>
         <width>751</width>
-        <height>201</height>
+        <height>211</height>
        </rect>
       </property>
      </widget>
@@ -100,7 +95,7 @@
       <property name="geometry">
        <rect>
         <x>120</x>
-        <y>30</y>
+        <y>10</y>
         <width>141</width>
         <height>31</height>
        </rect>
@@ -110,7 +105,7 @@
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>90</y>
+        <y>60</y>
         <width>81</width>
         <height>31</height>
        </rect>
@@ -170,7 +165,7 @@
       <property name="geometry">
        <rect>
         <x>120</x>
-        <y>90</y>
+        <y>60</y>
         <width>141</width>
         <height>31</height>
        </rect>
@@ -180,7 +175,7 @@
       <property name="geometry">
        <rect>
         <x>260</x>
-        <y>90</y>
+        <y>60</y>
         <width>81</width>
         <height>31</height>
        </rect>
@@ -193,7 +188,7 @@
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>150</y>
+        <y>110</y>
         <width>81</width>
         <height>31</height>
        </rect>
@@ -253,7 +248,7 @@
       <property name="geometry">
        <rect>
         <x>120</x>
-        <y>150</y>
+        <y>110</y>
         <width>141</width>
         <height>31</height>
        </rect>
@@ -263,7 +258,7 @@
       <property name="geometry">
        <rect>
         <x>260</x>
-        <y>150</y>
+        <y>110</y>
         <width>81</width>
         <height>31</height>
        </rect>
@@ -272,19 +267,124 @@
        <string>删除</string>
       </property>
      </widget>
-    </widget>
-    <widget class="QWidget" name="page_2">
-     <widget class="QLabel" name="label_3">
+     <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>160</x>
+        <x>20</x>
         <y>160</y>
-        <width>81</width>
-        <height>61</height>
+        <width>201</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
-       <string>工资</string>
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_8">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>140</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>历史信息</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_2">
+     <widget class="QTextEdit" name="textEdit_4">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>10</y>
+        <width>141</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_9">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>10</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>查询</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_10">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>10</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>id</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_11">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>60</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>起始月</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="textEdit_5">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>60</y>
+        <width>141</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_12">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>110</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>终止月</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="textEdit_6">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>110</y>
+        <width>141</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTableView" name="tableView_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>190</y>
+        <width>751</width>
+        <height>211</height>
+       </rect>
       </property>
      </widget>
     </widget>
@@ -320,7 +420,7 @@
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>290</x>
       <y>50</y>
       <width>101</width>
       <height>41</height>
@@ -333,7 +433,7 @@
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
-      <x>600</x>
+      <x>440</x>
       <y>50</y>
       <width>101</width>
       <height>41</height>

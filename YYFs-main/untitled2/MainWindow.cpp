@@ -88,12 +88,10 @@ void MainWindow::on_pushButton_5_clicked()  //查询员工信息
     model->setHeaderData(7,Qt::Horizontal,tr("职称"));
     model->setHeaderData(8,Qt::Horizontal,tr("政治面貌"));
     model->setHeaderData(9,Qt::Horizontal,tr("婚姻情况"));
-
     ui->tableView->setModel(model);
 
-
+    ui->label_2->setText("员工信息查询结果");
     db.close();
-
 }
 
 void MainWindow::on_pushButton_6_clicked()
@@ -130,7 +128,7 @@ void MainWindow::on_pushButton_6_clicked()
 
     ui->tableView->setModel(model_2);
 
-
+        ui->label_2->setText("员工信息修改结果");
     db.close();
 }
 
@@ -163,6 +161,35 @@ void MainWindow::on_pushButton_7_clicked()
     model->setHeaderData(9,Qt::Horizontal,tr("婚姻情况"));
 
     ui->tableView->setModel(model);
-
+    ui->label_2->setText("员工信息删除结果");
     db.close();
+}
+
+void MainWindow::on_pushButton_8_clicked()
+{
+    QSqlDatabase db=QSqlDatabase::addDatabase("QMYSQL","mainwindow_3");
+    db.setHostName("localhost");
+    db.setUserName("root");
+    db.setDatabaseName("account");                //设定要连接数据库的名字
+    db.setPassword("root");
+    db.setPort(3306);
+    db.open();
+
+    QSqlQueryModel *model=new QSqlQueryModel;
+    QString sql=QString("select * from employee_information_history");
+    model->setQuery(sql,db);
+    model->setHeaderData(0,Qt::Horizontal,tr("员工编号"));
+    model->setHeaderData(1,Qt::Horizontal,tr("姓名"));
+    model->setHeaderData(2,Qt::Horizontal,tr("性别"));
+    model->setHeaderData(3,Qt::Horizontal,tr("出生日期"));
+    model->setHeaderData(4,Qt::Horizontal,tr("入职时间"));
+    model->setHeaderData(5,Qt::Horizontal,tr("所属部门"));
+    model->setHeaderData(6,Qt::Horizontal,tr("职位"));
+    model->setHeaderData(7,Qt::Horizontal,tr("职称"));
+    model->setHeaderData(8,Qt::Horizontal,tr("政治面貌"));
+    model->setHeaderData(9,Qt::Horizontal,tr("婚姻情况"));
+    model->setHeaderData(10,Qt::Horizontal,tr("操作类型"));
+
+    ui->tableView->setModel(model);
+    ui->label_2->setText("员工信息操作历史");
 }
