@@ -290,3 +290,40 @@ void MainWindow::on_pushButton_16_clicked()
     ui->tableView_3->setModel(model);
     ui->label_3->setText("部门信息操作历史");
 }
+
+void MainWindow::on_pushButton_9_clicked()
+{
+    QSqlDatabase db=QSqlDatabase::addDatabase("QMYSQL","mainwindow_7");
+    db.setHostName("localhost");
+    db.setUserName("root");
+    db.setDatabaseName("account");                //设定要连接数据库的名字
+    db.setPassword("root");
+    db.setPort(3306);
+    db.open();
+
+    QString sql=QString("CALL exec_5(\"%1\",\"%2\")").arg(ui->textEdit_5->toPlainText()).arg(ui->textEdit_6->toPlainText());
+    QSqlQueryModel *model=new QSqlQueryModel;
+    model->setQuery(sql,db);
+    ui->tableView_2->setModel(model);
+
+}
+
+void MainWindow::on_pushButton_17_clicked()
+{
+    QSqlDatabase db=QSqlDatabase::addDatabase("QMYSQL","mainwindow_7");
+    db.setHostName("localhost");
+    db.setUserName("root");
+    db.setDatabaseName("account");                //设定要连接数据库的名字
+    db.setPassword("root");
+    db.setPort(3306);
+    db.open();
+
+    QString sql=QString("update salary set %1=\"%2\" where id=\"%3\" and release_date between \"%4\" and \"%5\"").arg(ui->comboBox_7->currentText()).arg(ui->textEdit_10->toPlainText()).arg(ui->textEdit_4->toPlainText()).arg(ui->textEdit_5->toPlainText()).arg(ui->textEdit_6->toPlainText());
+    QSqlQuery query(db);
+    query.exec(sql);
+
+    QString sql_2=QString("CALL exec_5(\"%1\",\"%2\")").arg(ui->textEdit_5->toPlainText()).arg(ui->textEdit_6->toPlainText());
+    QSqlQueryModel *model=new QSqlQueryModel;
+    model->setQuery(sql_2,db);
+    ui->tableView_2->setModel(model);
+}
