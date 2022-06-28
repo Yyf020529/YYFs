@@ -76,7 +76,7 @@ void MainWindow::on_pushButton_5_clicked()  //查询员工信息
     db.open();
 
     QSqlQueryModel *model=new QSqlQueryModel;
-    QString sql=QString("select * from employee_information where %1 = \"%2\"").arg(ui->comboBox->currentText()).arg(ui->textEdit->toPlainText());
+    QString sql=QString("CALL exec_1(%1)").arg(ui->textEdit->toPlainText().toInt());
     model->setQuery(sql,db);
     model->setHeaderData(0,Qt::Horizontal,tr("员工编号"));
     model->setHeaderData(1,Qt::Horizontal,tr("姓名"));
@@ -176,7 +176,7 @@ void MainWindow::on_pushButton_8_clicked()
     db.open();
 
     QSqlQueryModel *model=new QSqlQueryModel;
-    QString sql=QString("select * from employee_information_history");
+    QString sql=QString("CALL exec_2");
     model->setQuery(sql,db);
     model->setHeaderData(0,Qt::Horizontal,tr("员工编号"));
     model->setHeaderData(1,Qt::Horizontal,tr("姓名"));
@@ -192,4 +192,78 @@ void MainWindow::on_pushButton_8_clicked()
 
     ui->tableView->setModel(model);
     ui->label_2->setText("员工信息操作历史");
+}
+
+void MainWindow::on_pushButton_13_clicked()
+{
+    QSqlDatabase db=QSqlDatabase::addDatabase("QMYSQL","mainwindow_4");
+    db.setHostName("localhost");
+    db.setUserName("root");
+    db.setDatabaseName("account");                //设定要连接数据库的名字
+    db.setPassword("root");
+    db.setPort(3306);
+    db.open();
+
+
+    QSqlQueryModel *model=new QSqlQueryModel;
+    QString sql=QString("CALL exec_3(\"%1\")").arg(ui->textEdit_7->toPlainText());
+    model->setQuery(sql,db);
+    model->setHeaderData(0,Qt::Horizontal,tr("部门名称"));
+    model->setHeaderData(1,Qt::Horizontal,tr("部门负责人"));
+    model->setHeaderData(2,Qt::Horizontal,tr("部门人数"));
+
+    ui->tableView_3->setModel(model);
+}
+
+void MainWindow::on_pushButton_14_clicked()
+{
+    QSqlDatabase db=QSqlDatabase::addDatabase("QMYSQL","mainwindow_5");
+    db.setHostName("localhost");
+    db.setUserName("root");
+    db.setDatabaseName("account");                //设定要连接数据库的名字
+    db.setPassword("root");
+    db.setPort(3306);
+    db.open();
+
+    QString sql= QString("update employ_department set department_name = \"%1\" where department_name =\"%2\"")
+            .arg(ui->textEdit_8->toPlainText()).arg(ui->textEdit_7->toPlainText());
+    QSqlQuery query(db);
+    query.exec(sql);
+
+    QString sql_3=QString("update employee_information set department =\"%1\" where department=\"%2\"").arg(ui->textEdit_8->toPlainText()).arg(ui->textEdit_7->toPlainText());
+    query.exec(sql_3);
+
+    QSqlQueryModel *model=new QSqlQueryModel;
+    QString sql_2=QString("CALL exec_3(\"%1\")").arg(ui->textEdit_8->toPlainText());
+    model->setQuery(sql_2,db);
+    model->setHeaderData(0,Qt::Horizontal,tr("部门名称"));
+    model->setHeaderData(1,Qt::Horizontal,tr("部门负责人"));
+    model->setHeaderData(2,Qt::Horizontal,tr("部门人数"));
+    ui->tableView_3->setModel(model);
+}
+
+void MainWindow::on_pushButton_15_clicked()
+{
+    QSqlDatabase db=QSqlDatabase::addDatabase("QMYSQL","mainwindow_6");
+    db.setHostName("localhost");
+    db.setUserName("root");
+    db.setDatabaseName("account");                //设定要连接数据库的名字
+    db.setPassword("root");
+    db.setPort(3306);
+    db.open();
+
+    QString sql=QString("delete from employ_department where department_name=\"%1\"").arg(ui->textEdit_9->toPlainText());
+    QSqlQuery query(db);
+    query.exec(sql);
+
+    QString sql_3=QString("delete from employee_information where department=\"%1\"").arg(ui->textEdit_9->toPlainText());
+    query.exec(sql_3);
+
+    QSqlQueryModel *model=new QSqlQueryModel;
+    QString sql_2=QString("CALL exec_3(\"%1\")").arg(ui->textEdit_9->toPlainText());
+    model->setQuery(sql_2,db);
+    model->setHeaderData(0,Qt::Horizontal,tr("部门名称"));
+    model->setHeaderData(1,Qt::Horizontal,tr("部门负责人"));
+    model->setHeaderData(2,Qt::Horizontal,tr("部门人数"));
+    ui->tableView_3->setModel(model);
 }

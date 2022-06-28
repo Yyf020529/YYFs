@@ -1,4 +1,4 @@
-#ifndef WIDGET_H
+﻿#ifndef WIDGET_H
 #define WIDGET_H
 
 #include <QWidget>
@@ -20,6 +20,7 @@ public:
     ~Widget();
     MainWindow son;
     zhuce mun;
+
 private slots:
     void on_pushButton_clicked();
     void show_myself();
