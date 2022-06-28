@@ -301,7 +301,7 @@ void MainWindow::on_pushButton_9_clicked()
     db.setPort(3306);
     db.open();
 
-    QString sql=QString("CALL exec_5(\"%1\",\"%2\")").arg(ui->textEdit_5->toPlainText()).arg(ui->textEdit_6->toPlainText());
+    QString sql=QString("CALL exec_5(\"%1\",\"%2\")").arg(ui->comboBox_8->currentText()).arg(ui->comboBox_9->currentText());
     QSqlQueryModel *model=new QSqlQueryModel;
     model->setQuery(sql,db);
     ui->tableView_2->setModel(model);
@@ -318,11 +318,11 @@ void MainWindow::on_pushButton_17_clicked()
     db.setPort(3306);
     db.open();
 
-    QString sql=QString("update salary set %1=\"%2\" where id=\"%3\" and release_date between \"%4\" and \"%5\"").arg(ui->comboBox_7->currentText()).arg(ui->textEdit_10->toPlainText()).arg(ui->textEdit_4->toPlainText()).arg(ui->textEdit_5->toPlainText()).arg(ui->textEdit_6->toPlainText());
+    QString sql=QString("update salary set %1=\"%2\" where id=\"%3\" and release_date between \"%4\" and \"%5\"").arg(ui->comboBox_7->currentText()).arg(ui->textEdit_10->toPlainText()).arg(ui->textEdit_4->toPlainText()).arg(ui->comboBox_8->currentText()).arg(ui->comboBox_9->currentText());
     QSqlQuery query(db);
     query.exec(sql);
 
-    QString sql_2=QString("CALL exec_5(\"%1\",\"%2\")").arg(ui->textEdit_5->toPlainText()).arg(ui->textEdit_6->toPlainText());
+    QString sql_2=QString("CALL exec_5(\"%1\",\"%2\")").arg(ui->comboBox_8->currentText()).arg(ui->comboBox_9->currentText());
     QSqlQueryModel *model=new QSqlQueryModel;
     model->setQuery(sql_2,db);
     ui->tableView_2->setModel(model);
