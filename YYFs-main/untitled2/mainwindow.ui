@@ -43,14 +43,14 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>90</y>
+      <x>10</x>
+      <y>80</y>
       <width>771</width>
       <height>421</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QComboBox" name="comboBox">
@@ -344,16 +344,6 @@
        <string>起始月</string>
       </property>
      </widget>
-     <widget class="QTextEdit" name="textEdit_5">
-      <property name="geometry">
-       <rect>
-        <x>310</x>
-        <y>60</y>
-        <width>141</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QPushButton" name="pushButton_12">
       <property name="geometry">
        <rect>
@@ -365,16 +355,6 @@
       </property>
       <property name="text">
        <string>终止月</string>
-      </property>
-     </widget>
-     <widget class="QTextEdit" name="textEdit_6">
-      <property name="geometry">
-       <rect>
-        <x>310</x>
-        <y>120</y>
-        <width>141</width>
-        <height>31</height>
-       </rect>
       </property>
      </widget>
      <widget class="QTableView" name="tableView_2">
@@ -520,6 +500,19 @@
        </property>
       </item>
      </widget>
+     <widget class="QPushButton" name="pushButton_18">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>140</y>
+        <width>101</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>历史信息</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page_3">
      <widget class="QComboBox" name="comboBox_4">
@@ -649,8 +642,8 @@
      <widget class="QPushButton" name="pushButton_16">
       <property name="geometry">
        <rect>
-        <x>654</x>
-        <y>122</y>
+        <x>650</x>
+        <y>120</y>
         <width>81</width>
         <height>31</height>
        </rect>
@@ -674,12 +667,12 @@
      </widget>
     </widget>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QRadioButton" name="radioButton">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>50</y>
-      <width>101</width>
+      <x>90</x>
+      <y>40</y>
+      <width>121</width>
       <height>41</height>
      </rect>
     </property>
@@ -687,26 +680,26 @@
      <string>查询员工信息</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QRadioButton" name="radioButton_2">
     <property name="geometry">
      <rect>
-      <x>290</x>
+      <x>300</x>
       <y>50</y>
-      <width>101</width>
-      <height>41</height>
+      <width>121</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
      <string>查询工资信息</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QRadioButton" name="radioButton_3">
     <property name="geometry">
      <rect>
-      <x>440</x>
+      <x>520</x>
       <y>50</y>
-      <width>101</width>
-      <height>41</height>
+      <width>121</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">

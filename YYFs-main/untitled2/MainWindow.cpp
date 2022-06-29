@@ -242,7 +242,7 @@ void MainWindow::on_pushButton_14_clicked()
     ui->tableView_3->setModel(model);
 }
 
-void MainWindow::on_pushButton_15_clicked()
+void MainWindow::on_pushButton_15_clicked()         //删除部门
 {
     QSqlDatabase db=QSqlDatabase::addDatabase("QMYSQL","mainwindow_6");
     db.setHostName("localhost");
@@ -326,4 +326,36 @@ void MainWindow::on_pushButton_17_clicked()
     QSqlQueryModel *model=new QSqlQueryModel;
     model->setQuery(sql_2,db);
     ui->tableView_2->setModel(model);
+}
+
+void MainWindow::on_pushButton_18_clicked()
+{
+    QSqlDatabase db=QSqlDatabase::addDatabase("QMYSQL","mainwindow_7");
+    db.setHostName("localhost");
+    db.setUserName("root");
+    db.setDatabaseName("account");                //设定要连接数据库的名字
+    db.setPassword("root");
+    db.setPort(3306);
+    db.open();
+
+    QSqlQueryModel *model=new QSqlQueryModel;
+    QString sql=QString("CALL exec_6");
+    model->setQuery(sql,db);
+
+    ui->tableView_2->setModel(model);
+}
+
+void MainWindow::on_radioButton_clicked(bool checked)
+{
+    ui->stackedWidget->setCurrentWidget(ui->page);
+}
+
+void MainWindow::on_radioButton_2_clicked(bool checked)
+{
+    ui->stackedWidget->setCurrentWidget(ui->page_2);
+}
+
+void MainWindow::on_radioButton_3_clicked(bool checked)
+{
+    ui->stackedWidget->setCurrentWidget(ui->page_3);
 }

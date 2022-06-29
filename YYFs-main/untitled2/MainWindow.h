@@ -45,6 +45,14 @@ private slots:
 
     void on_pushButton_17_clicked();
 
+    void on_pushButton_18_clicked();
+
+    void on_radioButton_clicked(bool checked);
+
+    void on_radioButton_2_clicked(bool checked);
+
+    void on_radioButton_3_clicked(bool checked);
+
 signals:
     void   showMain();          //自定义信号  是一个信号不需要定义
 private:
