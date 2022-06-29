@@ -679,6 +679,9 @@
     <property name="text">
      <string>查询员工信息</string>
     </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QRadioButton" name="radioButton_2">
     <property name="geometry">

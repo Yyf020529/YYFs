@@ -77,6 +77,7 @@ void MainWindow::on_pushButton_5_clicked()  //查询员工信息
 
     QSqlQueryModel *model=new QSqlQueryModel;
     QString sql=QString("CALL exec_1(%1)").arg(ui->textEdit->toPlainText().toInt());
+
     model->setQuery(sql,db);
     model->setHeaderData(0,Qt::Horizontal,tr("员工编号"));
     model->setHeaderData(1,Qt::Horizontal,tr("姓名"));
@@ -108,7 +109,10 @@ void MainWindow::on_pushButton_6_clicked()
     QString sql= QString("update employee_information set %1 = \"%2\" where %3 =\"%4\"").arg(ui->comboBox_2->currentText()).arg(ui->textEdit_2->toPlainText())
             .arg(ui->comboBox->currentText()).arg(ui->textEdit->toPlainText());
     QSqlQuery query(db);
-    query.exec(sql);
+    if(!query.exec(sql))
+    {
+         QMessageBox::warning(NULL,"错误 ","输入信息错误 ");
+    }
 
     QSqlQueryModel *model_2=new QSqlQueryModel;
 
@@ -146,9 +150,13 @@ void MainWindow::on_pushButton_7_clicked()
     QString sql=QString("delete from employee_information where %1=\"%2\"").arg(ui->comboBox_3->currentText()).arg(ui->textEdit_3->toPlainText());
 
     QSqlQuery query(db);
-    query.exec(sql);
+    if(!query.exec(sql))
+    {
+        QMessageBox::warning(NULL,"错误 ","输入信息错误 ");
+    }
 
     QSqlQueryModel *model=new QSqlQueryModel;
+    model->setQuery(sql_2,db);
     model->setHeaderData(0,Qt::Horizontal,tr("员工编号"));
     model->setHeaderData(1,Qt::Horizontal,tr("姓名"));
     model->setHeaderData(2,Qt::Horizontal,tr("性别"));
