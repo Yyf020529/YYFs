@@ -48,22 +48,6 @@ void MainWindow::on_pushButton_clicked()
        this->hide();            //  隐藏
 }
 
-void MainWindow::on_pushButton_2_clicked()
-{
-    ui->stackedWidget->setCurrentWidget(ui->page);
-}
-
-void MainWindow::on_pushButton_3_clicked()
-{
-    ui->stackedWidget->setCurrentWidget(ui->page_2);
-}
-
-
-
-void MainWindow::on_pushButton_4_clicked()
-{
-    ui->stackedWidget->setCurrentWidget(ui->page_3);
-}
 
 void MainWindow::on_pushButton_5_clicked()  //查询员工信息
 {
