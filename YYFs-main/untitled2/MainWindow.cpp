@@ -28,11 +28,11 @@ MainWindow::MainWindow(QWidget *parent) :
         qDebug()<<"主界面连接数据库成功";
     }
 
-    QSqlQuery query("select username from user",db);
-    while(query.next())
-    {
+    //QSqlQuery query("select username from user",db);
+    //while(query.next())
+    //{
 
-    }
+    //}
 }
 
 MainWindow::~MainWindow()
@@ -48,6 +48,22 @@ void MainWindow::on_pushButton_clicked()
        this->hide();            //  隐藏
 }
 
+void MainWindow::on_pushButton_2_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->page);
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->page_2);
+}
+
+
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->page_3);
+}
 
 void MainWindow::on_pushButton_5_clicked()  //查询员工信息
 {
@@ -292,8 +308,16 @@ void MainWindow::on_pushButton_9_clicked()
     db.setPassword("root");
     db.setPort(3306);
     db.open();
+    QString sql;
+    if(ui->comboBox_10->currentText()=="id")
+    {
+    sql=QString("CALL exec_5(\"%1\",\"%2\",%3)").arg(ui->comboBox_8->currentText()).arg(ui->comboBox_9->currentText()).arg(ui->textEdit_4->toPlainText());
+    }
+    else
+    {
+        sql=QString("CALL exec_7(\"%1\",\"%2\",\"%3\")").arg(ui->comboBox_8->currentText()).arg(ui->comboBox_9->currentText()).arg(ui->textEdit_4->toPlainText());
+    }
 
-    QString sql=QString("CALL exec_5(\"%1\",\"%2\")").arg(ui->comboBox_8->currentText()).arg(ui->comboBox_9->currentText());
     QSqlQueryModel *model=new QSqlQueryModel;
     model->setQuery(sql,db);
     ui->tableView_2->setModel(model);
@@ -309,12 +333,25 @@ void MainWindow::on_pushButton_17_clicked()
     db.setPassword("root");
     db.setPort(3306);
     db.open();
-
-    QString sql=QString("update salary set %1=\"%2\" where id=\"%3\" and release_date between \"%4\" and \"%5\"").arg(ui->comboBox_7->currentText()).arg(ui->textEdit_10->toPlainText()).arg(ui->textEdit_4->toPlainText()).arg(ui->comboBox_8->currentText()).arg(ui->comboBox_9->currentText());
+    QString sql;
+    QString sql_2;
+    QString sql_3;
     QSqlQuery query(db);
+    if(ui->comboBox_10->currentText()=="id")
+    {
+        sql=QString("update salary set %1=\"%2\" where id=\"%3\" and release_date between \"%4\" and \"%5\"").arg(ui->comboBox_7->currentText()).arg(ui->textEdit_10->toPlainText()).arg(ui->textEdit_4->toPlainText()).arg(ui->comboBox_8->currentText()).arg(ui->comboBox_9->currentText());
+        sql_2=QString("CALL exec_5(\"%1\",\"%2\",%3)").arg(ui->comboBox_8->currentText()).arg(ui->comboBox_9->currentText()).arg(ui->textEdit_4->toPlainText());
+    }
+    else
+    {
+        sql_3=QString("select id from employee_information where department = \"%1\"").arg(ui->textEdit_4->toPlainText());
+        sql=QString("update salary set %1=\"%2\" where id in(%3) and release_date between \"%4\" and \"%5\"").arg(ui->comboBox_7->currentText()).arg(ui->textEdit_10->toPlainText()).arg(sql_3).arg(ui->comboBox_8->currentText()).arg(ui->comboBox_9->currentText());
+        sql_2=QString("CALL exec_7(\"%1\",\"%2\",\"%3\")").arg(ui->comboBox_8->currentText()).arg(ui->comboBox_9->currentText()).arg(ui->textEdit_4->toPlainText());
+
+    }
     query.exec(sql);
 
-    QString sql_2=QString("CALL exec_5(\"%1\",\"%2\")").arg(ui->comboBox_8->currentText()).arg(ui->comboBox_9->currentText());
+
     QSqlQueryModel *model=new QSqlQueryModel;
     model->setQuery(sql_2,db);
     ui->tableView_2->setModel(model);
