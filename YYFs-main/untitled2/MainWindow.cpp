@@ -233,16 +233,17 @@ void MainWindow::on_pushButton_14_clicked()
     db.setPort(3306);
     db.open();
 
-    QString sql= QString("update employ_department set department_name = \"%1\" where department_name =\"%2\"")
+    QString sql= QString("update employ_department set %1 = \"%2\" where department_name =\"%3\"").arg(ui->comboBox_5->currentText())
             .arg(ui->textEdit_8->toPlainText()).arg(ui->textEdit_7->toPlainText());
     QSqlQuery query(db);
     query.exec(sql);
+
 
     QString sql_3=QString("update employee_information set department =\"%1\" where department=\"%2\"").arg(ui->textEdit_8->toPlainText()).arg(ui->textEdit_7->toPlainText());
     query.exec(sql_3);
 
     QSqlQueryModel *model=new QSqlQueryModel;
-    QString sql_2=QString("CALL exec_3(\"%1\")").arg(ui->textEdit_8->toPlainText());
+    QString sql_2=QString("CALL exec_3(\"%1\")").arg(ui->textEdit_7->toPlainText());
     model->setQuery(sql_2,db);
     model->setHeaderData(0,Qt::Horizontal,tr("部门名称"));
     model->setHeaderData(1,Qt::Horizontal,tr("部门负责人"));

@@ -50,7 +50,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QComboBox" name="comboBox">
@@ -588,6 +588,16 @@
       <item>
        <property name="text">
         <string>department_name</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>department_person</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>department_num</string>
        </property>
       </item>
      </widget>
