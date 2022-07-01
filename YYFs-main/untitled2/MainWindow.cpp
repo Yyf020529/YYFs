@@ -105,7 +105,7 @@ void MainWindow::on_pushButton_6_clicked()
     db.setPort(3306);
     db.open();
 
-    QString sql_2=QString("select * from employee_information where %1 = %2").arg(ui->comboBox->currentText()).arg(ui->textEdit->toPlainText().toInt());
+    QString sql_2=QString("select * from employee_information where %1 = %2").arg(ui->comboBox_2->currentText()).arg(ui->textEdit_2->toPlainText().toInt());
     QString sql= QString("update employee_information set %1 = \"%2\" where %3 =\"%4\"").arg(ui->comboBox_2->currentText()).arg(ui->textEdit_2->toPlainText())
             .arg(ui->comboBox->currentText()).arg(ui->textEdit->toPlainText());
     QSqlQuery query(db);
@@ -184,7 +184,7 @@ void MainWindow::on_pushButton_8_clicked()
     db.open();
 
     QSqlQueryModel *model=new QSqlQueryModel;
-    QString sql=QString("CALL exec_2");
+    QString sql=QString("select * from view_1");
     model->setQuery(sql,db);
     model->setHeaderData(0,Qt::Horizontal,tr("员工编号"));
     model->setHeaderData(1,Qt::Horizontal,tr("姓名"));
