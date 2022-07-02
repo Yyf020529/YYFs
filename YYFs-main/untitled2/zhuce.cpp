@@ -4,7 +4,7 @@
 #include<QSqlError>
 #include<QSqlQuery>
 #include<QMessageBox>
-
+//注册界面
 zhuce::zhuce(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::zhuce)
@@ -23,10 +23,10 @@ zhuce::~zhuce()
     delete ui;
 }
 
-void zhuce::on_pushButton_clicked()
+void zhuce::on_pushButton_clicked()//点击返回按钮
 {
-    emit showMain_1();
-    this->hide();
+    emit showMain_1();//发送信号，让登陆界面显示
+    this->hide();//注册界面隐藏
 }
 
 void zhuce::on_back_clicked()
